@@ -18,9 +18,9 @@ def change_apn():
     
     chosen_apn = input("Introduce the APN you'd like to register: ")
 
-    confirmation = input("APN configuration is going to be updated with " + chosen_apn + ", do you want to proceed? (0/1): " )
+    confirmation = input("APN configuration is going to be updated with " + chosen_apn + ", do you want to proceed? (n/y): " )
 
-    if int(confirmation) == 1:
+    if confirmation == 'y':
         os.system("clear")
         
         #Modify epc file
@@ -37,7 +37,7 @@ def change_apn():
         print("Operation succeeded")   
         return
 
-    elif int(confirmation) == 0:
+    elif confirmation == 'n':
         os.system("clear")        
         menu()
         return
@@ -72,9 +72,9 @@ def add_new_user():
     new_line = str(chosen_name)+","+str(chosen_auth)+","+str(chosen_imsi)+","+str(chosen_key)+","+str(chosen_opc_type)+","+str(chosen_opc)+","+str(chosen_amf)+","+str(chosen_sqn)+","+str(chosen_qci)+","+str(chosen_ip)
 
     print(new_line)
-    confirmation = input("User with this data is going to be registered, do you want to proceed? (0/1): " )
+    confirmation = input("User with this data is going to be registered, do you want to proceed? (n/y): " )
 
-    if int(confirmation) == 1:
+    if confirmation == 'y':
         os.system("clear")
         
         #Modify user database file
@@ -89,7 +89,7 @@ def add_new_user():
         print("Operation succeeded")   
         return
 
-    elif int(confirmation) == 0:
+    elif confirmation == 'n':
         os.system("clear")        
         menu()
         return
@@ -100,9 +100,9 @@ def change_parameters(mcc, mnc, band):
     '''Registers custom MCC, MNC and band, and save configuration'''
 
     print("CONFIRMATION: Requested configuration is MCC:" + str(mcc) + " ,MNC: " + str(mnc) + " and band: " + str(band) + ". Are you sure you want to proceed?")
-    confirmate_changes = input("Do you want to proceed? (0/1): ")
+    confirmate_changes = input("Do you want to proceed? (n/y): ")
     
-    if int(confirmate_changes) == 1:
+    if confirmate_changes == 'y':
         #Check MNC format
         if(mnc<10):
             mnc = "0"+str(mnc)
@@ -250,7 +250,7 @@ def change_parameters(mcc, mnc, band):
         
         return
 
-    if int(confirmate_changes) == 0:
+    if confirmate_changes == 'n':
         os.system("clear")        
         menu()
         return
