@@ -1,0 +1,5 @@
+version: '3.4'
+services:
+  srslte:
+    build: .
+    container_name: srslte
